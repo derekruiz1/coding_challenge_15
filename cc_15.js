@@ -34,6 +34,32 @@ function addRiskItem(riskName, riskLevel, department) {
     riskDashboard.appendChild(riskCard);
 }
 
+//Task 5
+function increaseRiskLevels() {
+    document.querySelectorAll(".riskCard").forEach((card) => {
+        const riskLevelSpan = card.querySelector(".riskLevel");
+
+        let currentLevel = riskLevelSpan.textContent.trim();
+        let newLevel;
+
+        if (currentLevel === "Low") {
+            newLevel = "Medium";
+            card.classList.remove("low-risk");
+            card.classList.add("medium-risk");
+        } else if (currentLevel === "Medium") {
+            newLevel = "High";
+            card.classList.remove("medium-risk");
+            card.classList.add("high-risk");
+        } else {
+            newLevel = "High";
+        }
+
+        riskLevelSpan.textContent = newLevel;
+    });
+}
+
+document.getElementById("increaseRisk").addEventListener("click", increaseRiskLevels);
+
 document.getElementById("riskForm").addEventListener("submit", function (event) {
     event.preventDefault();
     const riskName = document.getElementById("riskName").value;
@@ -49,3 +75,4 @@ addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 addRiskItem("Market Fluctuations", "High", "Finance");
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+addRiskItem("Employee Retention", "Low", "HR");
