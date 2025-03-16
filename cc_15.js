@@ -11,6 +11,16 @@ function addRiskItem(riskName, riskLevel, department) {
     riskCard.innerHTML = `<strong>Risk Name:</strong> ${riskName}<br>
                           <strong>Risk Level:</strong> ${riskLevel}<br>
                           <strong>Department:</strong> ${department}`;
+
+//Task 4
+  if (riskLevel === "Low") {
+         riskCard.classList.add("low-risk");
+        } else if (riskLevel === "Medium") {
+        riskCard.classList.add("medium-risk");
+        } else if (riskLevel === "High") {
+        riskCard.classList.add("high-risk");
+        }
+                
     riskDashboard.appendChild(riskCard);
 
 //Task 3
@@ -37,3 +47,5 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 addRiskItem("Market Fluctuations", "High", "Finance");
+addRiskItem("Cybersecurity Threat", "High", "IT");
+addRiskItem("HR Compliance Issue", "Low", "Human Resources");
