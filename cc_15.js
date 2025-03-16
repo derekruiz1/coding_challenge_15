@@ -20,16 +20,14 @@ function addRiskItem(riskName, riskLevel, department) {
         } else if (riskLevel === "High") {
         riskCard.classList.add("high-risk");
         }
-                
     riskDashboard.appendChild(riskCard);
-
+    //event.stopPropagation()
 //Task 3
     const resolveButton = document.createElement("button");
     resolveButton.textContent = "Resolve";
     resolveButton.addEventListener("click", function () {
         riskCard.remove();
     });
-
     riskCard.appendChild(resolveButton);
     riskDashboard.appendChild(riskCard);
 }
